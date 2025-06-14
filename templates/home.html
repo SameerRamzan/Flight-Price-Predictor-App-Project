@@ -1,6 +1,69 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h2>Hello! Welcome to the Flight Price Prection Site </h2>
-<a href="{{url_for('predict')}}">Start It Here</a>
+<style>
+    body {
+        background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+        min-height: 100vh;
+    }
+    .jumbotron {
+        background: rgba(255,255,255,0.95);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        padding: 3rem 2rem;
+        margin-top: 3rem;
+    }
+    .features {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+    .feature {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        padding: 1.5rem 1rem;
+        width: 220px;
+        text-align: center;
+    }
+    .feature i {
+        font-size: 2.5rem;
+        color: #66a6ff;
+        margin-bottom: 0.5rem;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 14rem;
+        color: #555;
+        font-size: 1rem;
+    }
+</style>
+<div class="jumbotron text-center">
+    <h1 class="display-4">Flight Price Prediction</h1>
+    <p class="lead">Get instant and accurate flight fare predictions using Machine Learning.</p>
+    <hr class="my-4">
+    <p>Start your journey by predicting flight prices based on your travel details.</p>
+    <a href="{{url_for('predict')}}" class="btn btn-primary btn-lg mt-3">Predict Now</a>
+</div>
+<div class="features">
+    <div class="feature">
+        <i class="fas fa-plane"></i>
+        <h5>Easy to Use</h5>
+        <p>Simple interface for quick predictions.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <h5>Accurate Results</h5>
+        <p>Powered by advanced ML models.</p>
+    </div>
+    <div class="feature">
+        <i class="fas fa-lock"></i>
+        <h5>Secure</h5>
+        <p>Your data is never stored or shared.</p>
+    </div>
+</div>
+<div class="footer">
+    &copy; {{ 2025 }} Flight Price Prediction. Made with <span style="color:#e25555;">&hearts;</span> for travelers.
+</div>
 {% endblock content %}

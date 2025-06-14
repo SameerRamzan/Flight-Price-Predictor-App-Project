@@ -1,106 +1,115 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<style>
+    .btn-secondary {
+        background-color: #0051ff;
+        color: rgb(255, 255, 255);
+        border: #1a237e;
+    }
+    .form-label {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #1a237e;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.3rem;
+        display: block;
+    }
+</style>
 <form action="" method="post">
     {{ form.hidden_tag() }}
-    <div>
-        {{form.airline.label}}
-        {{form.airline}}
-        {% if form.airline.errors %}
-            {% for error in form.airline.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{form.date_of_journey.label}}
-        {{form.date_of_journey}}
-        {% if form.date_of_journey.errors %}
-            {% for error in form.date_of_journey.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{form.source.label}}
-        {{form.source}}
-        {% if form.source.errors %}
-            {% for error in form.source.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{form.destination.label}}
-        {{form.destination}}
-        {% if form.destination.errors %}
-            {% for error in form.destination.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{form.dep_time.label}}
-        {{form.dep_time}}
-        {% if form.dep_time.errors %}
-            {% for error in form.dep_time.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>
-        {{form.arrival_time.label}}
-        {{form.arrival_time}}
-        {% if form.arrival_time.errors %}
-            {% for error in form.arrival_time.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-     <div>
-        {{form.duration.label}}
-        {{form.duration}}
-        {% if form.duration.errors %}
-            {% for error in form.duration.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-     <div>
-        {{form.total_stops.label}}
-        {{form.total_stops}}
-        {% if form.total_stops.errors %}
-            {% for error in form.total_stops.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-     <div>
-        {{form.additional_info.label}}
-        {{form.additional_info}}
-        {% if form.additional_info.errors %}
-            {% for error in form.additional_info.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        {% endif %}
-    </div>
-    <br>
-    <div>{{form.submit()}}</div>
-    <br>
-    <div>
+    {% if output %}
+    <div class="alert alert-success mt-4">
         {{output}}
     </div>
+    {% endif %}
     <br>
-    <div>
-        <p>Redirect to Home Page? <a href="{{url_for('home')}}" >Home</a></p>
+    <div class="form-group">
+        <label class="form-label">{{form.airline.label.text}}</label>
+        {{form.airline(class="form-control")}}
+        {% if form.airline.errors %}
+            {% for error in form.airline.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label class="form-label">{{form.date_of_journey.label.text}}</label>
+        {{form.date_of_journey(class="form-control")}}
+        {% if form.date_of_journey.errors %}
+            {% for error in form.date_of_journey.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label class="form-label">{{form.source.label.text}}</label>
+        {{form.source(class="form-control")}}
+        {% if form.source.errors %}
+            {% for error in form.source.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label class="form-label">{{form.destination.label.text}}</label>
+        {{form.destination(class="form-control")}}
+        {% if form.destination.errors %}
+            {% for error in form.destination.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label class="form-label">{{form.dep_time.label.text}}</label>
+        {{form.dep_time(class="form-control")}}
+        {% if form.dep_time.errors %}
+            {% for error in form.dep_time.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        <label class="form-label">{{form.arrival_time.label.text}}</label>
+        {{form.arrival_time(class="form-control")}}
+        {% if form.arrival_time.errors %}
+            {% for error in form.arrival_time.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+     <div class="form-group">
+        <label class="form-label">{{form.duration.label.text}}</label>
+        {{form.duration(class="form-control")}}
+        {% if form.duration.errors %}
+            {% for error in form.duration.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+     <div class="form-group">
+        <label class="form-label">{{form.total_stops.label.text}}</label>
+        {{form.total_stops(class="form-control")}}
+        {% if form.total_stops.errors %}
+            {% for error in form.total_stops.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+     <div class="form-group">
+        <label class="form-label">{{form.additional_info.label.text}}</label>
+        {{form.additional_info(class="form-control")}}
+        {% if form.additional_info.errors %}
+            {% for error in form.additional_info.errors %}
+                <span class="text-danger small">[{{ error }}]</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="form-group">
+        {{form.submit(class="btn btn-primary")}}
+    </div>
+    <div class="mt-3">
+        <a href="{{url_for('home')}}" class="btn btn-secondary">Redirect to Home Page?</a>
     </div>
 </form>
 {% endblock content %}

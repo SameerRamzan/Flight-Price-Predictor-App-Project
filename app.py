@@ -1,20 +1,29 @@
+# import necessary libraries
 from flask import Flask, url_for, render_template
 from forms import InputForm
 import pandas as pd
 import joblib
 
+# initialize the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
 
+#load the trained model
 model = joblib.load('model.joblib')
 
+# Define the route for the home page and prediction page
 @app.route('/')
 @app.route('/home')
 def home():
     return render_template('home.html', title='Home')
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
+    # Create an instance of the InputForm
     form = InputForm()
     if form.validate_on_submit():
         x_new = pd.DataFrame(dict(
@@ -31,7 +40,7 @@ def predict():
         prediction = model.predict(x_new)[0]
         message = f"The predicted price is {prediction:,.0f} INR"
     else:
-        message = "Please fill out the form to get a prediction."
+        message = "Kindly ❤️ fill out the form to get a prediction."
     return render_template('predict.html', title='Predict', form=form, output=message)
 
 
