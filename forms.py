@@ -4,8 +4,8 @@ from wtforms.validators import DataRequired
 import pandas as pd
 
 #load the data
-train = pd.read_csv('dataset/train.csv')
-val =  pd.read_csv('dataset/val.csv')
+train = pd.read_csv('Dataset/train.csv')
+val =  pd.read_csv('Dataset/val.csv')
 X_data = pd.concat([train, val], axis=0)
 
 class InputForm(FlaskForm):

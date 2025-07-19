@@ -6,3 +6,4 @@ WTForms==3.2.1
 scikit-learn==1.6.1
 feature-engine==1.8.3
 gunicorn
+xgboost
